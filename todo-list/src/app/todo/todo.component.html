@@ -1,13 +1,28 @@
-<p>Lista de Tarefas 🎯</p>
+<div class="todo-container">
+  <h1>Lista de Tarefas 🎯</h1>
 
-<form (submit)="addTask()">
-  <input [(ngModel)]="newTask" placeholder="➕ Adicionar uma nova tarefa" name="task">
-  <button type="submit">ADICIONAR</button>
-</form>
-<ul>
-  <li *ngFor="let task of tasks; let i = index">
-    <span [class.completed]="task.completed">{{ task.name }}</span>
-    <button (click)="toggleTask(i)">Toggle</button>
-    <button (click)="removeTask(i)">Remove</button>
-  </li>
-</ul>
+  <form (submit)="addTask()" class="task-form">
+    <input 
+      [(ngModel)]="newTask" 
+      placeholder="➕ Adicione uma nova tarefa" 
+      name="task" 
+      required
+    />
+    <button type="submit" class="add-task-btn">ADICIONAR</button>
+  </form>
+
+  <ul class="task-list">
+    <li *ngFor="let task of tasks; let i = index" 
+        [class.completed]="task.completed" 
+        [class.archived]="task.archived">
+      <span class="task-name">{{ task.name }}</span>
+      <button *ngIf="!task.archived" (click)="toggleTask(i)" class="toggle-btn">
+        {{ task.completed ? '✅ Concluído' : '❎ Não Concluído' }}
+      </button>
+      <button (click)="toggleArchiveTask(i)" class="archive-btn">
+        {{ task.archived ? '📦 Arquivado' : '📂 Arquivar' }}
+      </button>
+      <button *ngIf="!task.archived" (click)="removeTask(i)" class="remove-btn">🗑️ Remover</button>
+    </li>
+  </ul>
+</div>
