@@ -1,0 +1,50 @@
+/* src/app/todo/todo.component.css */
+
+/* Estilos para o componente TodoComponent */
+
+/* Estilo para o formulário de tarefas */
+form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo para a lista de tarefas */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Estilo para a tarefa concluída */
+.completed {
+  text-decoration: line-through;
+  color: #888;
+}

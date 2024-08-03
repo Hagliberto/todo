@@ -1,18 +1,14 @@
 import { Component } from '@angular/core';
 
-interface Task {
-  name: string;
-  completed: boolean;
-}
-
 @Component({
   selector: 'app-todo',
+  standalone: true,
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent {
   newTask: string = '';
-  tasks: Task[] = [];
+  tasks: { name: string, completed: boolean }[] = [];
 
   addTask() {
     if (this.newTask.trim()) {
