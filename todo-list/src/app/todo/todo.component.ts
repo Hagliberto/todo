@@ -1,10 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-todo',
   standalone: true,
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.css']
+  styleUrls: ['./todo.component.scss'],
+  imports: [CommonModule, FormsModule]
 })
 export class TodoComponent {
   newTask: string = '';
