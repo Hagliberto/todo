@@ -1,0 +1,7 @@
+::ng-deep .tooltip-completed {
+  --mdc-plain-tooltip-container-color: #00d26a !important;
+}
+
+::ng-deep .tooltip-archived {
+  --mdc-plain-tooltip-container-color: #fcd53f !important;
+}

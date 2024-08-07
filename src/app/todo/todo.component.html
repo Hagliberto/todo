@@ -4,7 +4,7 @@
   <form (submit)="addTask()" class="task-form">
     <input 
       [(ngModel)]="newTask" 
-      placeholder="➕ Adicione uma nova tarefa" 
+      placeholder="Adicione uma nova tarefa" 
       name="task" 
       required
     />
@@ -13,16 +13,30 @@
 
   <ul class="task-list">
     <li *ngFor="let task of tasks; let i = index" 
-        [class.completed]="task.completed" 
+        
         [class.archived]="task.archived">
-      <span class="task-name">{{ task.name }}</span>
-      <button *ngIf="!task.archived" (click)="toggleTask(i)" class="toggle-btn">
-        {{ task.completed ? '✅ Concluído' : '❎ Não Concluído' }}
+      <span [class.completed]="task.completed" class="task-name">{{ task.name }}</span>
+      <button *ngIf="!task.archived" (click)="toggleTask(i)" class="toggle-btn"
+        matTooltip="{{task.completed ? 'Concluída' : 'Não Concluída'}}"
+        matTooltipClass="tooltip-completed"
+        matTooltipPosition="above"
+        >
+        {{ task.completed ? '✅' : '❎' }}
       </button>
-      <button (click)="toggleArchiveTask(i)" class="archive-btn">
-        {{ task.archived ? '📦 Arquivado' : '📂 Arquivar' }}
+
+      <button (click)="toggleArchiveTask(i)" class="archive-btn"
+        matTooltip="{{task.archived ? 'Arquivada' : 'Não Arquivada'}}"
+        matTooltipClass="tooltip-archived"
+        matTooltipPosition="above"
+      >
+        {{ task.archived ? '📦' : '📂' }}
       </button>
-      <button *ngIf="!task.archived" (click)="removeTask(i)" class="remove-btn">🗑️ Remover</button>
+      <button *ngIf="!task.archived" (click)="removeTask(i)" class="remove-btn"
+        matTooltip="Excluir"
+        matTooltipPosition="above"
+      >
+        🗑️
+      </button>
     </li>
   </ul>
 </div>

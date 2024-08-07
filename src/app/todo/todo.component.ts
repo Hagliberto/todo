@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
   templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss'],
-  imports: [CommonModule, FormsModule]
+  styleUrls: ['./todo.component.css', './todo.component.scss'],
+  imports: [CommonModule, FormsModule, MatTooltipModule]
 })
 export class TodoComponent {
   newTask: string = '';
   tasks: { name: string, completed: boolean, archived: boolean }[] = [];
+  teste: string = 'banana';
 
   addTask() {
     if (this.newTask.trim()) {
